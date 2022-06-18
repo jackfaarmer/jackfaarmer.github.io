@@ -11,3 +11,5 @@ This is a test site/playground to show off my projects, skills, and general hobb
 as well as frameworks adjacent to webdev. This site will progressively improve as I do, as I will reflect everything I utilize and learn here.
 
 Please visit [jackfaarmer.github.io](https://jackfaarmer.github.io) to see the active site.
+
+This is an extra text blocc.
