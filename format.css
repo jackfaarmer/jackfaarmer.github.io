@@ -6,10 +6,28 @@ body {
     padding: 10px;
     font-family: sans-serif;
     color: white;
+    cursor: default;
 }
 #name {
     text-decoration: none;
 }
 a {
     color: white;
+}
+button {
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+}
+button:hover {
+    background-color: #cccccc;
+    transition-duration: 500ms;
+}
+#about-button{
+    height: 60px;
 }
