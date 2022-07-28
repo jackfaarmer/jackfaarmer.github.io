@@ -15,7 +15,7 @@ a {
     color: white;
 }
 button {
-    height: 40px;
+    height: 45px;
     width: 100px;
     border-radius: 10px;
     background-color: white;
@@ -23,11 +23,12 @@ button {
     cursor: pointer;
     font-size: 20px;
     font-weight: bold;
+    transition-duration: 250ms;
 }
 button:hover {
     background-color: #cccccc;
-    transition-duration: 500ms;
+    transition-duration: 250ms;
 }
 #about-button{
-    height: 60px;
+    width: 140px;
 }
