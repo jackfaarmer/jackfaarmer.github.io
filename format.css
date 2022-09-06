@@ -33,7 +33,7 @@ button:hover {
     width: 80px;
 }
 #link_icon {
-    max-height: 20px;
+    max-height: 30px;
     filter: invert(1);
 }
 #pfp {

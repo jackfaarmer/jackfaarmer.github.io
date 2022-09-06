@@ -1,6 +1,6 @@
-# [Jack Farmer Test Website](https://jackfaarmer.github.io)
+# [Jack-Farmer.com](https://jack-farmer.com)
 
-### Description
+## Description
 
 This is a test site/playground to show off my projects, skills, and general hobbies. Here, I utilize core web-based languages such as:
 
@@ -10,6 +10,15 @@ This is a test site/playground to show off my projects, skills, and general hobb
 
 as well as frameworks adjacent to webdev. This site will progressively improve as I do, as I will reflect everything I utilize and learn here.
 
-Please visit [jackfaarmer.github.io](https://jackfaarmer.github.io) to see the active site.
+Please visit [jack-farmer.com](https://jack-farmer.com) to see the active site.
 
-This is an extra text blocc.
+## Goals
+
+Current goals for this website are as follows
+
+* responsive layout
+* responsize header & footer
+* adding resume/work background page
+* showcase on homepage
+
+If you have any questions, suggestions, or concerns, please feel free to submit an issue ticket and I will address it as soon as I can.

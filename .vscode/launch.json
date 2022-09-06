@@ -5,17 +5,23 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Mac Launch Chrome",
+            "request": "launch",
+            "type": "chrome",
+            "url": "${workspaceFolder}/index.html",
+        },
+        {
             "type": "chrome",
             "request": "launch",
             "name": "Index - Chrome",
             "url": "${workspaceFolder}/index.html"
-        }
+        },
         {
             "type": "chrome",
             "request": "launch",
             "name": "About - Chrome",
             "url": "${workspaceFolder}/about.html"
-        }
+        },
         {
             "type": "chrome",
             "request": "launch",
