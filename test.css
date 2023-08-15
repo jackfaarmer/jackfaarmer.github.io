@@ -5,71 +5,82 @@ body {
     margin: 0;
     background-color: black;
     padding-top: 30px;
-  }
+}
 
-  .jumbotron {
+.jumbotron {
     color: #fff;
     position: relative;
-  }
+}
 
-  .jumbotron .container {
+.jumbotron .container {
     position: relative;
     z-index: 1;
-  }
+}
 
-  .jumbotron .jumbotron-image {
+.jumbotron .jumbotron-image {
     display: block;
     background-size: cover;
     background-position: center;
     z-index: 0;
-  }
+}
 
-  /* Styling for mobile layouts */
-  @media (max-width: 767.98px) {
+@media (max-width: 767.98px) {
     .jumbotron .container .row {
         flex-direction: column-reverse;
-      }
+    }
     
-      .jumbotron .container .col-md-6 {
+    .jumbotron .container .col-md-6 {
         padding: 12px;
         padding-top: 30px;
-      }
+    }
     
-      .jumbotron .container .col-md-6 img {
+    .jumbotron .container .col-md-6 img {
         width: 100%;
         height: auto;
-      }
+    }
 
     .mobile-text {
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 20px;
-      position: relative;
-      z-index: 1;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        position: relative;
+        z-index: 1;
     }
-  }
+}
 
-  /* Sticky footer styles */
-  .footer {
+.footer {
     color: #fff;
-  }
+}
 
-  .content {
+.content {
     flex: 1;
     padding-top: 4;
-  }
+}
 
-  #link_icon {
+#link_icon {
     max-height: 25px;
     filter: invert(1);
-    }
-    #contact_icon {
-        filter: invert(1);
-        max-height: 100px;
-    }   
+}
+
+#contact_icon {
+    filter: invert(1);
+    max-height: 100px;
+}   
+
 .btn-lg {
     background-color: #6c757d;
     border: #5b636a;
 }
+
 .btn-lg:hover {
     background-color: #5b636a;
+}
+
+#pillbutton {
+    background-color: #6c757d;
+    border: #5b636a;
+    color: white;
+}
+
+.experience-item p {
+    margin-bottom: 4px;
 }
