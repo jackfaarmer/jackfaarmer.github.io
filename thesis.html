@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thesis - Jack Farmer</title>
+  <!-- Add the Bootstrap CSS from the CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="test.css">
+  <link rel="icon" type="image" href="favicon.ico" sizes="16x16">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Jack Farmer</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Jumbotron -->
+  <div class="jumbotron">
+    <div class="jumbotron-image" style="background-image: url('pfp-2021.jpg');"></div>
+    <div class="container py-5">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h1 class="display-4">Thesis</h1>
+          <p class="lead">See how my work is coming along.</p>
+          <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <div class="container">
+      <nav class="nav nav-pills nav-fill">
+        <a class="nav-item nav-link" id="pillbutton" href="#august">August</a>
+        <a class="nav-item nav-link" id="pillbutton" href="#september">September</a>
+        <!-- <a class="nav-item nav-link" id="pillbutton" href="#education">Education</a>
+        <a class="nav-item nav-link" id="pillbutton" href="#volunteering">Volunteering</a> -->
+      </nav>
+      <div class="container py-5">
+        <div class="row align-items-center" style="color: white">
+          <div>
+
+            <!-- September -->
+
+            <!-- <h2 id="september">September</h2> -->
+
+            <!-- August -->
+
+            <h2 id="august">August</h2>
+
+            <br>
+
+            <div class="experience-item">
+              <h5>August 16, 2023</h5> <!-- Date -->
+              <h6>Introduction</h6> <!-- Title -->
+              <p>Welcome! This is where I share updates about</p> <!-- Body -->
+              <ul>
+                <li>What I worked on,</li>
+                <li>What I am stuck on,</li>
+                <li>and what I want to focus on the following week.</li>
+              </ul>
+              <p>Like always, if you have any suggestions, comments, concerns, or otherwise, please
+                feel free to <a href="./contact.html" style="color:#fff">reach out to me!</a>
+              </p>
+            </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer py-3 text-center">
+    <div class="container">
+      <span>&copy; <span id="currentYear"></span> Jack Farmer - </span>
+      <a href="https://github.com/jackfaarmer" target="_blank"><img id="link_icon" src="github_svg.png"
+          alt="jackfaarmer on GitHub"></a>
+      <a href="https://twitter.com/jackfaarmer" target="_blank"><img id="link_icon" src="twitter_scg.png"
+          alt="jackfaarmer on Twitter"></a>
+      <a href="https://www.linkedin.com/in/jackfarmer109/" target="_blank"><img id="link_icon" src="linkedin_svg.png"
+          alt="Jack Farmer on LinkedIn"></a>
+    </div>
+  </footer>
+
+  <!-- Add the Bootstrap JavaScript (Optional, but needed for some components) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JavaScript to update the year -->
+  <script>
+    const currentYear = new Date().getFullYear();
+    document.getElementById('currentYear').textContent = currentYear;
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var navbar = document.getElementById('navbar');
+      var navbarItems = navbar.querySelectorAll('.nav-link');
+
+      window.addEventListener('scroll', function () {
+        var fromTop = window.scrollY;
+
+        navbarItems.forEach(function (item) {
+          var section = document.querySelector(item.getAttribute('href'));
+          if (section.offsetTop <= fromTop + 50 && section.offsetTop + section.offsetHeight > fromTop + 50) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
