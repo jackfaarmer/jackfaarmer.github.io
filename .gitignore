@@ -20,4 +20,7 @@
 .history
 .ionide
 
+# DS_Store for macOS
+.DS_Store
+
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode
