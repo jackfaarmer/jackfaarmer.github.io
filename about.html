@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,13 +13,15 @@
   <link rel="stylesheet" href="css/test.css">
   <link rel="icon" type="image" href="assets/favicon.ico" sizes="16x16">
 </head>
+
 <body>
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
     <div class="container">
       <a class="navbar-brand" href="index.html">Jack Farmer</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -27,7 +30,8 @@
             <a class="nav-link" href="./index.html">Home</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
               About
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -61,38 +65,63 @@
   <!-- Content -->
   <div class="content">
     <div class="container" style="color: #fff;">
-        <p>I'm Jack Farmer, a current CS Graduate Student at Christopher Newport University.</p>
-        <p>I graduated from CNU in 2023 with a Bachelors in Computer Science, and decided that
-            I wanted to pursue my Masters as well.
-        </p>
-        <p>
-            My current research concerns moving pedestrian detection with autonomous robots. If you'd like to
-            learn more, please feel free to <a href="./contact.html" style="color:#fff">contact me</a> for more information
-        </p>
+      <p>
+        I'm Jack Farmer, a current Tech Lead at RCB Industries.
+      </p>
+      <p>
+        I graduated from CNU in 2023 with a Bachelors in Computer Science, spent a year working on my Masters,
+        then decided to enter the workforce as a SWE.
+      </p>
+      <p>
+        My current position focuses on Enterprise Resource Planning systems, Ecommerce Solutions, and
+        Integrations between the two.
         <br>
-        <br>
-        <p>This website is my continuous work-in-progress</p>
-        <p>You can see all of the changes that I make to this site on my <a href="https://github.com/jackfaarmer" target="_blank" style="color:#fff">GitHub profile.</a></p>
+        If you'd like to learn more, please feel free to
+        <a href="./contact.html" style="color:#fff">contact me</a> for more information
+      </p>
+
+      <br>
+      <br>
+
+      <p>
+        I've had a large interest in computing and solving problems with technology from a young age.
+        Just ask my parents how often our computers truly "worked"
+      </p>
+      <p>
+        You can often find me obsessing over cars, planning my next homelab upgrade , or find me at my local
+        monthly car show (Caffeine & Octane)
+      </p>
+
+      <br>
+      <br>
+
+      <p>This website is my continuous work-in-progress</p>
+      <p>You can see all of the changes that I make to this site on my <a href="https://github.com/jackfaarmer"
+          target="_blank" style="color:#fff">GitHub profile.</a></p>
     </div>
   </div>
 
   <!-- Footer -->
   <footer class="footer py-3 text-center">
     <div class="container">
-        <span>&copy; <span id="currentYear"></span> Jack Farmer - </span>
-        <a href="https://github.com/jackfaarmer" target="_blank"><img id="link_icon" src="assets/png/github_svg.png" alt="jackfaarmer on GitHub"></a>
-        <a href="https://twitter.com/jackfaarmer" target="_blank"><img id="link_icon" src="assets/png/twitter_scg.png" alt="jackfaarmer on Twitter"></a>
-        <a href="https://www.linkedin.com/in/jackfarmer109/" target="_blank"><img id="link_icon" src="assets/png/linkedin_svg.png" alt="Jack Farmer on LinkedIn"></a>  
+      <span>&copy; <span id="currentYear"></span> Jack Farmer - </span>
+      <a href="https://github.com/jackfaarmer" target="_blank"><img id="link_icon" src="assets/png/github_svg.png"
+          alt="jackfaarmer on GitHub"></a>
+      <a href="https://twitter.com/jackfaarmer" target="_blank"><img id="link_icon" src="assets/png/twitter_scg.png"
+          alt="jackfaarmer on Twitter"></a>
+      <a href="https://www.linkedin.com/in/jackfarmer109/" target="_blank"><img id="link_icon"
+          src="assets/png/linkedin_svg.png" alt="Jack Farmer on LinkedIn"></a>
     </div>
   </footer>
 
   <!-- Add the Bootstrap JavaScript (Optional, but needed for some components) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
+
   <!-- JavaScript to update the year -->
   <script>
     const currentYear = new Date().getFullYear();
     document.getElementById('currentYear').textContent = currentYear;
   </script>
 </body>
+
 </html>
