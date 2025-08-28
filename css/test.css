@@ -84,3 +84,7 @@ body {
 .section-header p {
     margin-bottom: 4px;
 }
+
+.contact-link {
+    color: #fff;
+}
