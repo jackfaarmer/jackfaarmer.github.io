@@ -84,3 +84,12 @@ body {
 .section-header p {
     margin-bottom: 4px;
 }
+
+.contact-link {
+    color: #fff;
+}
+
+.index-link {
+    color: #fff;
+    text-decoration: none;
+}
