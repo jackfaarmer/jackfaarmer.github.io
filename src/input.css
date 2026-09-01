@@ -2,16 +2,16 @@
 
 /* ---------------------------------------------------------------
    jack-farmer.com — 2026 refresh
-   Minimal by construction: near-monochrome, one column, system
-   type, hairline rules. No webfonts, no CDN, no runtime JS.
+   Minimal by construction: near-monochrome, one column, one
+   typeface, hairline rules. No webfonts, no CDN, no runtime JS.
    Dark mode rides on prefers-color-scheme (a toggle is chrome).
    --------------------------------------------------------------- */
 
 @theme {
-  /* System stack — zero network requests, native on every platform. */
-  --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
-               Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
+  /* One typeface for the whole page. Helvetica where it exists,
+     Arial everywhere else. Both ship with the OS, so still no
+     network requests. No second face: mixing them is the tell. */
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   /* Ink & paper. Two neutrals, one hairline. That's the whole palette. */
   --color-paper:    #ffffff;
@@ -51,9 +51,10 @@
 }
 
 @layer components {
-  /* Small-caps section label — the only recurring ornament on the page. */
-  .eyebrow {
-    @apply text-[11px] font-medium uppercase tracking-[0.14em] text-muted dark:text-muted-dark;
+  /* Section heading. Same face and casing as everything else; the
+     rule above it and its muted tone do the separating. */
+  .section-label {
+    @apply text-[13px] font-medium text-muted dark:text-muted-dark;
   }
 
   /* Underline-on-hover link, used for every inline and list link. */
