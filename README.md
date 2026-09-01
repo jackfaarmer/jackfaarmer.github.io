@@ -1,24 +1,41 @@
-# [Jack-Farmer.com](https://jack-farmer.com)
+# [jack-farmer.com](https://jack-farmer.com)
 
-## Description
+My personal site. A single static page, served by GitHub Pages from the
+root of this repo.
 
-This is a test site/playground to show off my projects, skills, and general hobbies. Here, I utilize core web-based languages such as:
+## Stack
 
-* HTML,
-* CSS, and
-* JavaScript
+Plain HTML plus [Tailwind CSS v4](https://tailwindcss.com). Tailwind is
+compiled ahead of time by the CLI into `styles.css`, which is committed
+and served as a normal stylesheet. There is no CDN, no framework and no
+build step on GitHub's side. The only JavaScript on the page is the one
+line that sets the copyright year.
 
-as well as frameworks adjacent to webdev. This site will progressively improve as I do, as I will reflect everything I utilize and learn here.
+## Working on it
 
-Please visit [jack-farmer.com](https://jack-farmer.com) to see the active site.
+```sh
+npm install       # once
+npm run dev       # rebuild styles.css on change
+npm run serve     # http://localhost:4000
+```
 
-## Goals
+Run `npm run build` before committing so the minified `styles.css` in
+the repo matches the markup. Editing classes in `index.html` without
+rebuilding will leave the page missing styles.
 
-Current goals for this website are as follows
+## Layout
 
-* responsive layout
-* responsize header & footer
-* adding resume/work background page
-* showcase on homepage
+| Path             | What it is                                    |
+| ---------------- | --------------------------------------------- |
+| `index.html`     | The whole site                                |
+| `src/input.css`  | Tailwind entry point and design tokens        |
+| `styles.css`     | Compiled output. Generated, but committed     |
+| `jack-farmer.jpg`| Profile photo, also used for link previews     |
+| `CNAME`          | Custom domain for GitHub Pages                |
 
-If you have any questions, suggestions, or concerns, please feel free to submit an issue ticket and I will address it as soon as I can.
+## Design
+
+Deliberately minimal: one column, near-monochrome, system fonts, hairline
+rules. The palette is four colours and their dark-mode counterparts,
+defined as tokens in `src/input.css`. Dark mode follows the reader's
+system setting via `prefers-color-scheme`, with no toggle.
