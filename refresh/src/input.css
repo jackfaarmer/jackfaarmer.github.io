@@ -1,20 +1,45 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------
-   Design tokens. Placeholder values — finalised once the visual
-   direction is locked. Everything below is a real CSS custom
-   property, so the compiled stylesheet stays fully static.
+   jack-farmer.com — 2026 refresh
+   Minimal by construction: near-monochrome, one column, system
+   type, hairline rules. No webfonts, no CDN, no runtime JS.
+   Dark mode rides on prefers-color-scheme (a toggle is chrome).
    --------------------------------------------------------------- */
+
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", monospace;
+  /* System stack — zero network requests, native on every platform. */
+  --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
+
+  /* Ink & paper. Two neutrals, one hairline. That's the whole palette. */
+  --color-paper:    #ffffff;
+  --color-ink:      #111111;
+  --color-muted:    #6b6b6b;
+  --color-rule:     #e6e6e6;
+
+  --color-paper-dark: #0b0b0b;
+  --color-ink-dark:   #ededed;
+  --color-muted-dark: #8c8c8c;
+  --color-rule-dark:  #242424;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Anchor targets clear the sticky header. */
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
   }
-  /* Respect users who ask for reduced motion. */
+
+  /* Visible focus for keyboard users, invisible for mouse users. */
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after {
@@ -22,5 +47,18 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
+  }
+}
+
+@layer components {
+  /* Small-caps section label — the only recurring ornament on the page. */
+  .eyebrow {
+    @apply text-[11px] font-medium uppercase tracking-[0.14em] text-muted dark:text-muted-dark;
+  }
+
+  /* Underline-on-hover link, used for every inline and list link. */
+  .link {
+    @apply underline decoration-rule dark:decoration-rule-dark underline-offset-4
+           transition-colors hover:decoration-ink dark:hover:decoration-ink-dark;
   }
 }
