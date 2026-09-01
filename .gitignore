@@ -21,3 +21,9 @@
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode
+### Node / Tailwind build ###
+node_modules/
+npm-debug.log*
+
+### macOS ###
+.DS_Store
