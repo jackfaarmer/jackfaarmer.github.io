@@ -8,10 +8,11 @@
    --------------------------------------------------------------- */
 
 @theme {
-  /* One typeface for the whole page. Helvetica where it exists,
-     Arial everywhere else. Both ship with the OS, so still no
-     network requests. No second face: mixing them is the tell. */
+  /* Helvetica where it exists, Arial everywhere else. Both ship
+     with the OS, so still no network requests. */
   --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* Reserved for the tech lines under each project, nothing else. */
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
 
   /* Ink & paper. Two neutrals, one hairline. That's the whole palette. */
   --color-paper:    #ffffff;
@@ -51,10 +52,10 @@
 }
 
 @layer components {
-  /* Section heading. Same face and casing as everything else; the
-     rule above it and its muted tone do the separating. */
+  /* Section heading. Sits between the hero and the body copy: big
+     enough to anchor the section, quiet enough not to compete. */
   .section-label {
-    @apply text-[13px] font-medium text-muted dark:text-muted-dark;
+    @apply text-xl font-medium tracking-tight;
   }
 
   /* Underline-on-hover link, used for every inline and list link. */
