@@ -28,6 +28,9 @@
   /* Reserved for the tech lines under each project, nothing else. */
   --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
 
+  /* Drives the palette swap and the link hover fades alike. */
+  --default-transition-duration: 300ms;
+
   /* Ink & paper. Two neutrals, one hairline. That's the whole palette. */
   --color-paper:    #ffffff;
   --color-ink:      #111111;
@@ -49,6 +52,14 @@
   }
   :root[data-theme="dark"]  { color-scheme: dark; }
   :root[data-theme="light"] { color-scheme: light; }
+
+  /* Ease the palette swap so the toggle reads as the light changing
+     rather than a hard cut. */
+  *, *::before, *::after {
+    transition-property: background-color, border-color, color, text-decoration-color;
+    transition-duration: var(--default-transition-duration);
+    transition-timing-function: var(--default-transition-timing-function);
+  }
 
   html {
     scroll-behavior: smooth;
