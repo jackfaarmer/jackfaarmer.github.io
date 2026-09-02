@@ -3,9 +3,23 @@
 /* ---------------------------------------------------------------
    jack-farmer.com — 2026 refresh
    Minimal by construction: near-monochrome, one column, one
-   typeface, hairline rules. No webfonts, no CDN, no runtime JS.
-   Dark mode rides on prefers-color-scheme (a toggle is chrome).
+   typeface, hairline rules. No webfonts, no CDN.
+   Dark mode follows prefers-color-scheme; a nav toggle can override
+   it, stored in localStorage and applied as data-theme on <html>.
    --------------------------------------------------------------- */
+
+@custom-variant dark {
+  /* No stored choice: defer to the OS, unless light was picked. */
+  @media (prefers-color-scheme: dark) {
+    &:where(:not([data-theme="light"], [data-theme="light"] *)) {
+      @slot;
+    }
+  }
+  /* An explicit choice wins over the OS in either direction. */
+  &:where([data-theme="dark"], [data-theme="dark"] *) {
+    @slot;
+  }
+}
 
 @theme {
   /* Helvetica where it exists, Arial everywhere else. Both ship
@@ -27,6 +41,15 @@
 }
 
 @layer base {
+  :root {
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { color-scheme: dark; }
+  }
+  :root[data-theme="dark"]  { color-scheme: dark; }
+  :root[data-theme="light"] { color-scheme: light; }
+
   html {
     scroll-behavior: smooth;
     /* Anchor targets clear the sticky header. */
