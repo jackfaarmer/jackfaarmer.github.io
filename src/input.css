@@ -34,6 +34,12 @@
     -webkit-text-size-adjust: 100%;
   }
 
+  /* Rebalance the tail of a paragraph so a single word never gets
+     stranded alone on the last line. */
+  p {
+    text-wrap: pretty;
+  }
+
   /* Visible focus for keyboard users, invisible for mouse users. */
   :focus-visible {
     outline: 2px solid currentColor;
