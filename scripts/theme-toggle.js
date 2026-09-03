@@ -22,8 +22,7 @@
     );
   }
 
-  button.addEventListener('click', function () {
-    var next = current() === 'dark' ? 'light' : 'dark';
+  function apply(next) {
     root.setAttribute('data-theme', next);
     try {
       localStorage.setItem('theme', next);
@@ -31,6 +30,18 @@
       /* Choice still applies for this page view, just won't persist. */
     }
     relabel();
+  }
+
+  button.addEventListener('click', function () {
+    var next = current() === 'dark' ? 'light' : 'dark';
+    /* Crossfade the before and after frames rather than the colours
+       themselves, which would take the text through an invisible
+       mid grey. Older browsers just swap, which never flashed anyway. */
+    if (document.startViewTransition) {
+      document.startViewTransition(function () { apply(next); });
+    } else {
+      apply(next);
+    }
   });
 
   /* Only reaches here while the OS is still in charge; once a choice is
