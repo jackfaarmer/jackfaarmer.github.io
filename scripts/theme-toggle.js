@@ -1,0 +1,52 @@
+/* Wires the nav toggle. The icons swap in CSS, so this only has to flip
+   the attribute, remember the choice, and keep the label honest. */
+(function () {
+  var button = document.getElementById('theme-toggle');
+  if (!button) return;
+
+  var root = document.documentElement;
+  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+  /* Before the first click there is no attribute, so the live theme is
+     whatever the OS says. After it, the attribute is the source of truth. */
+  function current() {
+    var set = root.getAttribute('data-theme');
+    if (set === 'light' || set === 'dark') return set;
+    return prefersDark.matches ? 'dark' : 'light';
+  }
+
+  function relabel() {
+    button.setAttribute(
+      'aria-label',
+      current() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'
+    );
+  }
+
+  function apply(next) {
+    root.setAttribute('data-theme', next);
+    try {
+      localStorage.setItem('theme', next);
+    } catch (e) {
+      /* Choice still applies for this page view, just won't persist. */
+    }
+    relabel();
+  }
+
+  button.addEventListener('click', function () {
+    var next = current() === 'dark' ? 'light' : 'dark';
+    /* Crossfade the before and after frames rather than the colours
+       themselves, which would take the text through an invisible
+       mid grey. Older browsers just swap, which never flashed anyway. */
+    if (document.startViewTransition) {
+      document.startViewTransition(function () { apply(next); });
+    } else {
+      apply(next);
+    }
+  });
+
+  /* Only reaches here while the OS is still in charge; once a choice is
+     stored, current() ignores the media query and the label holds. */
+  prefersDark.addEventListener('change', relabel);
+
+  relabel();
+})();

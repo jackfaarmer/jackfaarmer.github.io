@@ -3,9 +3,23 @@
 /* ---------------------------------------------------------------
    jack-farmer.com — 2026 refresh
    Minimal by construction: near-monochrome, one column, one
-   typeface, hairline rules. No webfonts, no CDN, no runtime JS.
-   Dark mode rides on prefers-color-scheme (a toggle is chrome).
+   typeface, hairline rules. No webfonts, no CDN.
+   Dark mode follows prefers-color-scheme; a nav toggle can override
+   it, stored in localStorage and applied as data-theme on <html>.
    --------------------------------------------------------------- */
+
+@custom-variant dark {
+  /* No stored choice: defer to the OS, unless light was picked. */
+  @media (prefers-color-scheme: dark) {
+    &:where(:not([data-theme="light"], [data-theme="light"] *)) {
+      @slot;
+    }
+  }
+  /* An explicit choice wins over the OS in either direction. */
+  &:where([data-theme="dark"], [data-theme="dark"] *) {
+    @slot;
+  }
+}
 
 @theme {
   /* Helvetica where it exists, Arial everywhere else. Both ship
@@ -13,6 +27,9 @@
   --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
   /* Reserved for the tech lines under each project, nothing else. */
   --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
+
+  /* Link hover fades. The theme swap has its own timing above. */
+  --default-transition-duration: 150ms;
 
   /* Ink & paper. Two neutrals, one hairline. That's the whole palette. */
   --color-paper:    #ffffff;
@@ -27,6 +44,32 @@
 }
 
 @layer base {
+  :root {
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { color-scheme: dark; }
+  }
+  :root[data-theme="dark"]  { color-scheme: dark; }
+  :root[data-theme="light"] { color-scheme: light; }
+
+  /* The swap crossfades two fully painted frames instead of interpolating
+     the colours. Interpolating sends ink and paper through mid grey at the
+     same instant, where the text drops to 1.09:1 and vanishes. */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 300ms;
+    animation-timing-function: var(--default-transition-timing-function);
+  }
+
+  /* The * rule below cannot reach these pseudo-elements. */
+  @media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation: none;
+    }
+  }
+
   html {
     scroll-behavior: smooth;
     /* Anchor targets clear the sticky header. */
